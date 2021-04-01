@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Teams>
+@*build view componenet in _layout
+    used to filter out the teams
+    use asp-route to pass info
+    pass in ID to filter in controller*@
+
+@*Add page for home folder*@
+
+@*<a asp-action="Index" asp-controller="Home" asp-route-teamID="">Home</a>
+    <br />
+
+
+    @foreach (var x in Model)
+    {
+        <a asp-action="Index" asp-controller="Home"
+           asp-route-teamID="@x.TeamId"
+           asp-route-teamName="@x.TeamName">@x.TeamName</a>
+        <br />
+
+    }*@
+<h2 class="text-center">Teams</h2>
+
+<a class="btn text-center  @("Home" == ViewBag.SelectedTeam ? "btn-dark" : "btn-light") " style="margin-bottom: 2%;width: 100% " asp-action="Index" asp-controller="Home" asp-route-teamID="">Home</a>
+
+<!---This is the view that dynamically changes teh selected team category-->
+@foreach (var x in Model)
+{
+    <a class="btn text-center @(x.TeamName == ViewBag.SelectedTeam ? "btn-dark" : "btn-light")" style="margin-bottom:2%; width:100%" 
+       asp-action="Index" 
+       asp-controller="Home" 
+       asp-route-teamname="@x.TeamName" 
+       asp-route-teamID="@x.TeamId">@x.TeamName</a>
+    <br />
+
+}
