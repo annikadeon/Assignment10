@@ -5,14 +5,14 @@
 @model IndexViewModel
 <h2>@Model.TeamCat Team Roster</h2>
 
-    <table class="table table-dark table-striped">
-        <thead>
-            <tr><th>First Name</th><th>Last Name</th><th>Address</th><th>City</th><th>State<th>Zip</th><th>PhoneNumber</th></tr>
-        </thead>
-
-        <tbody>
-            @foreach (var x in Model.Bowlers)
-            {
+<table class="table table-dark table-striped">
+    <thead>
+        <tr><th>First Name</th><th>Last Name</th><th>Address</th><th>City</th><th>State<th>Zip</th><th>PhoneNumber</th></tr>
+    </thead>
+    @*table for all the members*@
+    <tbody>
+        @foreach (var x in Model.Bowlers)
+        {
             <tr>
                 <td>@x.BowlerFirstName</td>
                 <td>@x.BowlerLastName</td>
@@ -22,13 +22,13 @@
                 <td>@x.BowlerZip</td>
                 <td>@x.BowlerPhoneNumber</td>
             </tr>
-            }
+        }
 
-        </tbody>
-    </table>
-
-<div page-info="@Model.PageNumberInfo" page-url-team ="@Model.TeamCat"  page-classes-enabled="true" page-class="btn" 
-         page-class-normal="btn-outline-dark"
-         page-class-selected="btn-info" class="btn-group pull-right m-1">
+    </tbody>
+</table>
+@*buttons! also to have the buttons look nicer, and highlight when selected*@
+<div page-info="@Model.PageNumberInfo" page-url-team="@Model.TeamCat" page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-info" class="btn-group pull-right m-1">
 
 </div>

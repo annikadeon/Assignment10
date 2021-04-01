@@ -6,18 +6,6 @@
 
 @*Add page for home folder*@
 
-@*<a asp-action="Index" asp-controller="Home" asp-route-teamID="">Home</a>
-    <br />
-
-
-    @foreach (var x in Model)
-    {
-        <a asp-action="Index" asp-controller="Home"
-           asp-route-teamID="@x.TeamId"
-           asp-route-teamName="@x.TeamName">@x.TeamName</a>
-        <br />
-
-    }*@
 <h2 class="text-center">Teams</h2>
 
 <a class="btn text-center  @("Home" == ViewBag.SelectedTeam ? "btn-dark" : "btn-light") " style="margin-bottom: 2%;width: 100% " asp-action="Index" asp-controller="Home" asp-route-teamID="">Home</a>
